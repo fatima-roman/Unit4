@@ -7,7 +7,7 @@ public class EJ02 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		Persona persona1 = new Persona();
+		/*Persona persona1 = new Persona();
 		System.out.print("Introduce DNI de Persona1:");
 		persona1.DNI = sc.next();
 		
@@ -33,7 +33,10 @@ public class EJ02 {
 		persona2.apellidos = sc.next();
 		
 		System.out.print("Introduce edad de Persona2:");
-		persona2.edad = sc.nextInt();
+		persona2.edad = sc.nextInt();*/
+		
+		Persona persona1 = new Persona("p1");
+		Persona persona2 = new Persona(19);
 		
 		System.out.print("\n\n"+persona1.nombre + " " + persona1.apellidos + " de DNI " + persona1.DNI + " ");
 		mayorEdad(persona1.edad); 
