@@ -4,7 +4,6 @@ public class EJ01 {
 
 	public static void main(String[] args) {
 		
-
         Punto p1 = new Punto();
         p1.x = 5;
         p1.y = 0;
