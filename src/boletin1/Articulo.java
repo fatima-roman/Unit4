@@ -1,29 +1,81 @@
 package boletin1;
 
 public class Articulo {
-	
-	String nombre = "Producto x";
-    double precio = 1.0;
-    double iva = 0.21;
-    int cuantosQuedan = 0;
-	
+
+    private String nombre;
+    private double precio;
+    private double iva;
+    private int cuantosQuedan;
+
+    // Constructor
     public Articulo(String nombre, double precio, int cuantosQuedan) {
-
-        if (nombre != null && !nombre.isEmpty()) {
-            this.nombre = nombre;
-        }
-
-        if (precio > 0) {
-            this.precio = Math.round(precio);
-        }
-
-        if (cuantosQuedan >= 0) {
-            this.cuantosQuedan = cuantosQuedan;
-        }
+        setNombre(nombre);
+        setPrecio(precio);
+        setCuantosQuedan(cuantosQuedan);
+        this.iva = 0.21; // IVA por defecto
     }
 
-    double getPVP() {
+    // Getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public double getIva() {
+        return iva;
+    }
+
+    public int getCuantosQuedan() {
+        return cuantosQuedan;
+    }
+
+    public double getPVP() {
         return precio + (precio * iva);
     }
-	
+
+    // Setters con validación
+    public void setNombre(String nombre) {
+        if (nombre != null && !nombre.isEmpty()) {
+            this.nombre = nombre;
+        } else {
+            System.out.println("Nombre inválido");
+        }
+    }
+
+    public void setPrecio(double precio) {
+        if (precio > 0) {
+            this.precio = Math.round(precio * 100.0) / 100.0; // redondear a 2 decimales
+        } else {
+            System.out.println("Precio inválido");
+        }
+    }
+
+    public void setIva(double iva) {
+        if (iva >= 0 && iva <= 1) {
+            this.iva = iva;
+        } else {
+            System.out.println("IVA inválido");
+        }
+    }
+
+    public void setCuantosQuedan(int cuantosQuedan) {
+        if (cuantosQuedan >= 0) {
+            this.cuantosQuedan = cuantosQuedan;
+        } else {
+            System.out.println("Stock inválido");
+        }
+    }
+
+    // Método para mostrar información del artículo
+    public void mostrar() {
+        System.out.println(nombre + ":"
+                + "\n  Precio: " + precio
+                + "\n  IVA: " + (iva * 100) + "%"
+                + "\n  PVP: " + getPVP()
+                + "\n  Stock: " + cuantosQuedan);
+    }
 }
+
