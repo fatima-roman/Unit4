@@ -73,17 +73,32 @@ public class Persona {
         }
     }
     
-    // Antes estaba en main
-    public static void mayorEdad(int edad) {
-        if (edad >= 18) {
-            System.out.print(" es mayor de edad");
-        } else {
-            System.out.print(" no es mayor de edad");
-        }
+   //Mayor de edad o no 
+    public boolean esMayorEdad() {
+    	if (edad >= 18) {
+    		return true; 
+    	}else {
+    		return false;
+    	}
+    }
+    
+    //Jubilado 
+    public boolean esJubilado() {
+    	if (edad>= 65) {
+    		return true;
+    	}else {
+    		return false;
+    	}
+    }
+    
+    public int diferenciaEdad(Persona p) {
+        return Math.abs(this.edad - p.getEdad());
     }
 
+
     // Método para mostrar información
-    public void mostrar() {
-        System.out.print(getNombre() + " " + getApellidos() + " de DNI " + getDNI() + " ");
+    public String toString() {
+        
+		return getNombre() + " " + getApellidos() + " de DNI " + getDNI() + " ";
     }
 }

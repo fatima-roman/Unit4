@@ -12,13 +12,15 @@ public class EJ02 {
         Persona persona2 = new Persona(19);
 
         // Mostrar información y mayor edad
-        persona1.mostrar();
-        Persona.mayorEdad(persona1.getEdad());
+        persona1.toString();
+        System.out.print(persona1.esMayorEdad() ? " es mayor de edad," : " no es mayor de edad,");
+        System.out.print(persona1.esJubilado() ? " es jubilado " : " no es jubilado ");
 
         System.out.println();
 
-        persona2.mostrar();
-        Persona.mayorEdad(persona2.getEdad());
+        persona2.toString();
+        System.out.print(persona2.esMayorEdad() ? " es mayor de edad" : " no es mayor de edad");
+        System.out.print(persona2.esJubilado() ? " es jubilado " : " no es jubilado ");
 
         System.out.println();
         
@@ -29,8 +31,9 @@ public class EJ02 {
         persona1.setDNI("12345678A");
 
         System.out.println("\nDespués de modificar datos:");
-        persona1.mostrar();
-        Persona.mayorEdad(persona1.getEdad());
+        persona1.toString();
+        System.out.print(persona1.esMayorEdad() ? " es mayor de edad" : " no es mayor de edad");
+        System.out.print(persona1.esJubilado() ? " es jubilado " : " no es jubilado ");
 
         sc.close();
     }

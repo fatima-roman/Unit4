@@ -35,6 +35,10 @@ public class Articulo {
     public double getPVP() {
         return precio + (precio * iva);
     }
+    
+    public double getPVPDescuento(double des) {
+    	return getPVP() - (getPVP()*(des/100));
+    }
 
     // Setters con validación
     public void setNombre(String nombre) {
@@ -68,10 +72,25 @@ public class Articulo {
             System.out.println("Stock inválido");
         }
     }
-
+    
+    //Vender con boolean
+    public boolean vender() {
+    	if (cuantosQuedan <= 0 ) {
+    		return false;
+    	}else {
+    		return true; 
+    	}
+    }
+    
+    //Almacenar con int
+    public int almacenar(int nuevo) {
+    	cuantosQuedan += nuevo; 
+    	return cuantosQuedan; 
+    }
+    
     // Método para mostrar información del artículo
-    public void mostrar() {
-        System.out.println(nombre + ":"
+    public String toString() {
+        return(nombre + ":"
                 + "\n  Precio: " + precio
                 + "\n  IVA: " + (iva * 100) + "%"
                 + "\n  PVP: " + getPVP()

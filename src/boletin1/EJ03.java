@@ -13,44 +13,52 @@ public class EJ03 {
 
         // Mostrar información
         System.out.println("Rectángulo 1:");
-        rect1.mostrar();
+        rect1.toString();
 
         System.out.println("\nRectángulo 2:");
-        rect2.mostrar(); // mostrará valores corregidos por los setters
+        rect2.toString(); // mostrará valores corregidos por los setters
         
         System.out.println("\nRectángulo 3:");
-        rect3.mostrar(); // mostrará valores por defecto
+        rect3.toString(); // mostrará valores por defecto
         
         System.out.println();
 
-        // Modificar rectángulos usando 
-        rect1.setX1(rect1.getX1() + 3);
-        rect1.setY1(rect1.getY1() - 2);
-        rect1.setX2(rect1.getX2() * 2);
-        rect1.setY2(rect1.getY2() - 2);
+     // Modificar rectángulos usando setAll
 
-        rect2.setX1(rect2.getX1() * 3);
-        rect2.setY1(rect2.getY1() - 2);
-        rect2.setX2(rect2.getX2() + 2);
-        rect2.setY2(rect2.getY2() / 2);
-        
-        rect3.setX1(rect3.getX1() * 6);
-        rect3.setY1(rect3.getY1() - 9);
-        rect3.setX2(rect3.getX2() + 6);
-        rect3.setY2(rect3.getY2() / 1);
+        rect1.setAll(
+            rect1.getX1() + 3,
+            rect1.getY1() - 2,
+            rect1.getX2() * 2,
+            rect1.getY2() - 2
+        );
+
+        rect2.setAll(
+            rect2.getX1() * 3,
+            rect2.getY1() - 2,
+            rect2.getX2() + 2,
+            rect2.getY2() / 2
+        );
+
+        rect3.setAll(
+            rect3.getX1() * 6,
+            rect3.getY1() - 9,
+            rect3.getX2() + 6,
+            rect3.getY2() / 1
+        );
+
         
         System.out.println();
 
         System.out.println("\nTras de modificar:");
 
         System.out.println("Rectángulo 1:");
-        rect1.mostrar();
+        rect1.toString();
 
         System.out.println("\nRectángulo 2:");
-        rect2.mostrar();
+        rect2.toString();
         
         System.out.println("\nRectángulo 3:");
-        rect3.mostrar();
+        rect3.toString();
     }
 }
 

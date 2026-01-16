@@ -26,12 +26,29 @@ class Punto {
     }
 
     // Setters
-    public void setX(int x) {
+    public void setXY(int x, int y) {
         this.x = x;
+        this.y = y; 
+    }
+    
+    //Desplaza el punto
+    public void desplaza(int   dx,   int   dy) {
+    	this.x = x + dx; 
+    	this.y = y + dy;
+    }
+    
+ // Distancia entre dos puntos
+    public double distancia(Punto p) {
+        int dx = this.x - p.x;
+        int dy = this.y - p.y;
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
-    public void setY(int y) {
-        this.y = y;
+    // toString
+    public String toString() {
+        return "(" + x + ", " + y + ")";
     }
+
+    
 }
 
