@@ -4,28 +4,42 @@ public class CuentaCorriente {
 	private String DNI; 
 	private String nombre;
 	private int saldo; 
-	private String nacionalidad; 
+	private naclidad nacionalidad; 
 	
 	//Constructores
 	public CuentaCorriente(String DNI, int saldo) {
 		setDNI(DNI); 
 		setSaldo(saldo);
 		this.nombre = "Sin nombre";
-		this.nacionalidad = "Extranjero"; 
+		this.nacionalidad = naclidad.Extranjero; 
 	}
 	
 	public CuentaCorriente(String DNI, String nombre, int saldo) {
 		setDNI(DNI); 
 		setSaldo(saldo);
 		setNombre(nombre);
-		this.nacionalidad = "Extranjero"; 
+		this.nacionalidad = naclidad.Extranjero; 
 	}
 	
-	public CuentaCorriente(String DNI, String nombre, int saldo, String nacionalidad) {
+	public CuentaCorriente(String DNI, String nombre, int saldo, naclidad string) {
 		setDNI(DNI); 
 		setSaldo(saldo);
 		setNombre(nombre);
-		setNacionalida(nacionalidad);
+		setNacionalida(string);
+	}
+	
+	public enum naclidad{
+		Español, Extranjero;
+
+		boolean equalsIgnoreCase(String string) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		boolean isEmpty() {
+			// TODO Auto-generated method stub
+			return false;
+		} 
 	}
 	
 	//Getters 
@@ -37,7 +51,7 @@ public class CuentaCorriente {
         return DNI;
     }
 
-	public String getNacionalidad() {
+	public naclidad getNacionalidad() {
         return nacionalidad;
     }
 
@@ -63,7 +77,7 @@ public class CuentaCorriente {
 		}
 	}
 	
-	public void setNacionalida(String nacionalidad) {
+	public void setNacionalida(naclidad nacionalidad) {
 		if (nacionalidad != null && !nacionalidad.isEmpty() 
 				&& (nacionalidad.equalsIgnoreCase("Extranjero") || nacionalidad.equalsIgnoreCase("Española"))) {
 			this.nacionalidad = nacionalidad;

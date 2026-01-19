@@ -1,13 +1,15 @@
 package boletin2;
 
+import boletin2.CuentaCorriente.naclidad;
+
 public class EJ01 {
 
     public static void main(String[] args) {
 
         // Crear cuentas
-        CuentaCorriente c1 = new CuentaCorriente("12345678A", "Juan", 1000, "Española");
+        CuentaCorriente c1 = new CuentaCorriente("12345678A", "Juan", 1000, naclidad.Español);
         CuentaCorriente c2 = new CuentaCorriente("87654321B", "Ana", 500);
-        CuentaCorriente c3 = new CuentaCorriente("12345678A", "Juan", 2000, "Extranjera");
+        CuentaCorriente c3 = new CuentaCorriente("12345678A", "Juan", 2000, naclidad.Extranjero);
 
         // Mostrar cuentas
         System.out.println("Cuentas iniciales:");
