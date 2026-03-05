@@ -105,14 +105,11 @@ public class CuentaCorriente {
                "\nSaldo: " + saldo + "\nNacionalidad: " + nacionalidad;
     }
 
-    // equals y hashCode
+    // equals 
     public boolean equals(Object obj) {
         if (this == obj) return true;
         CuentaCorriente other = (CuentaCorriente) obj;
         return this.DNI.equals(other.DNI);
     }
 
-    public int hashCode() {
-        return DNI.hashCode();
-    }
 }
