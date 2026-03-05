@@ -1,91 +1,79 @@
 package boletin2;
 
 public class CuentaCorriente {
-	private String DNI; 
-	private String nombre;
-	private int saldo; 
-	private naclidad nacionalidad; 
-	
-	//Constructores
-	public CuentaCorriente(String DNI, int saldo) {
-		setDNI(DNI); 
-		setSaldo(saldo);
-		this.nombre = "Sin nombre";
-		this.nacionalidad = naclidad.Extranjero; 
+	public enum Nacionalidad {
+	    Español, Extranjero;
 	}
-	
-	public CuentaCorriente(String DNI, String nombre, int saldo) {
-		setDNI(DNI); 
-		setSaldo(saldo);
-		setNombre(nombre);
-		this.nacionalidad = naclidad.Extranjero; 
-	}
-	
-	public CuentaCorriente(String DNI, String nombre, int saldo, naclidad string) {
-		setDNI(DNI); 
-		setSaldo(saldo);
-		setNombre(nombre);
-		setNacionalida(string);
-	}
-	
-	public enum naclidad{
-		Español, Extranjero;
 
-		boolean equalsIgnoreCase(String string) {
-			// TODO Auto-generated method stub
-			return false;
-		}
+    private String DNI;
+    private String nombre;
+    private int saldo;
+    private Nacionalidad nacionalidad;
 
-		boolean isEmpty() {
-			// TODO Auto-generated method stub
-			return false;
-		} 
-	}
-	
-	//Getters 
-	public String getNombre() {
+    // Constructores
+    public CuentaCorriente(String DNI, int saldo) {
+        setDNI(DNI);
+        setSaldo(saldo);
+        this.nombre = "Sin nombre";
+        this.nacionalidad = Nacionalidad.Extranjero;
+    }
+
+    public CuentaCorriente(String DNI, String nombre, int saldo) {
+        setDNI(DNI);
+        setSaldo(saldo);
+        setNombre(nombre);
+        this.nacionalidad = Nacionalidad.Extranjero;
+    }
+
+    public CuentaCorriente(String DNI, String nombre, int saldo, Nacionalidad nacionalidad) {
+        setDNI(DNI);
+        setSaldo(saldo);
+        setNombre(nombre);
+        setNacionalidad(nacionalidad);
+    }
+
+    // Getters
+    public String getNombre() {
         return nombre;
     }
 
-	public String getDNI() {
+    public String getDNI() {
         return DNI;
     }
 
-	public naclidad getNacionalidad() {
+    public Nacionalidad getNacionalidad() {
         return nacionalidad;
     }
 
-	public int getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 
-	
-	//Setters 
-	public void setNombre(String nombre) {
+    // Setters
+    public void setNombre(String nombre) {
         if (nombre != null && !nombre.isEmpty()) {
             this.nombre = nombre;
         } else {
             System.out.println("Nombre inválido");
         }
     }
-	
-	public void setDNI(String DNI) {
-		if (DNI != null && !DNI.isEmpty() && DNI.length() == 9) {
-			this.DNI = DNI;
-		} else {
-			System.out.println("DNI inválido");
-		}
-	}
-	
-	public void setNacionalida(naclidad nacionalidad) {
-		if (nacionalidad != null && !nacionalidad.isEmpty() 
-				&& (nacionalidad.equalsIgnoreCase("Extranjero") || nacionalidad.equalsIgnoreCase("Española"))) {
-			this.nacionalidad = nacionalidad;
-		} else {
-			System.out.println("Nombre inválido");
-		}
-	}
-	
+
+    public void setDNI(String DNI) {
+        if (DNI != null && !DNI.isEmpty() && DNI.length() == 9) {
+            this.DNI = DNI;
+        } else {
+            System.out.println("DNI inválido");
+        }
+    }
+
+    public void setNacionalidad(Nacionalidad nacionalidad) {
+        if (nacionalidad != null) {
+            this.nacionalidad = nacionalidad;
+        } else {
+            System.out.println("Nacionalidad inválida");
+        }
+    }
+
     public void setSaldo(int saldo) {
         if (saldo >= 0) {
             this.saldo = saldo;
@@ -93,34 +81,39 @@ public class CuentaCorriente {
             System.out.println("Saldo inválido");
         }
     }
-    
-    //Sacar dinero 
+
+    // Sacar dinero
     public boolean sacarDinero(int cantidad) {
-    	if ((saldo - cantidad)>=0) {
-    		return true; 
-    	}else {
-    		System.out.println("Operación inválida");
-    		return false; 
-    	}
+        if ((saldo - cantidad) >= 0) {
+            saldo -= cantidad; // ← ahora sí resta el dinero
+            return true;
+        } else {
+            System.out.println("Operación inválida: saldo insuficiente");
+            return false;
+        }
     }
-    
-    //Ingresar dinero 
+
+    // Ingresar dinero
     public int ingresarDinero(int cantidad) {
-    	saldo += cantidad;
-    	return saldo; 
+        saldo += cantidad;
+        return saldo;
     }
-    
-    //Syso
+
+    // toString
     public String toString() {
-    	return "Cuenta de " + nombre + "\nSaldo: " + saldo + "\nNacionalidad: " + nacionalidad;
+        return "Cuenta de " + nombre + "\nDNI: " + DNI +
+               "\nSaldo: " + saldo + "\nNacionalidad: " + nacionalidad;
     }
-    
-    //Equals
+
+    // equals y hashCode
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (!(obj instanceof CuentaCorriente)) return false;
         CuentaCorriente other = (CuentaCorriente) obj;
-        return this.DNI.equals(other.DNI) && this.nombre.equalsIgnoreCase(other.nombre);
+        return this.DNI.equals(other.DNI);
     }
 
+    public int hashCode() {
+        return DNI.hashCode();
+    }
 }
