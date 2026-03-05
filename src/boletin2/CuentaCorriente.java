@@ -108,7 +108,6 @@ public class CuentaCorriente {
     // equals y hashCode
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof CuentaCorriente)) return false;
         CuentaCorriente other = (CuentaCorriente) obj;
         return this.DNI.equals(other.DNI);
     }
